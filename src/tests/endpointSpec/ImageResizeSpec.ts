@@ -5,7 +5,9 @@ const request = supertest(app);
 
 describe("Testing the main endpoint", () => {
   it("Using the endpoint with a valid inputs returns 200", async () => {
-    await request.get("/api/images?filename=fjord&width=200&height=200").expect(200);
+    await request
+      .get("/api/images?filename=fjord&width=200&height=200")
+      .expect(200);
   });
 
   it("Using the endpoint without providing the parameters Throw New Error", async () => {

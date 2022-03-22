@@ -28,4 +28,10 @@ http://localhost:3001/api/images?width=200&height=200&filename=palmtunnel
 
 
 
+5. How to Run tests in our Project:
+To Run jasmine  ====> jasmine
+to Run prettier ====> npm run prettier
+to Run eslint ====> npm run lint
+to build to js and run jasmine tests ===>  npm run tests
+
 

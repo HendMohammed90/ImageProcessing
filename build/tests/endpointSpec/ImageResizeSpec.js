@@ -46,7 +46,9 @@ describe("Testing the main endpoint", function () {
     it("Using the endpoint with a valid inputs returns 200", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/images?filename=fjord&width=200&height=200").expect(200)];
+                case 0: return [4 /*yield*/, request
+                        .get("/api/images?filename=fjord&width=200&height=200")
+                        .expect(200)];
                 case 1:
                     _a.sent();
                     return [2 /*return*/];

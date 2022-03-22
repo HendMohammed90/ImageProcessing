@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === "development") {
 //define our Port
 var port = process.env.PORT || 8080;
 //Mount Our Route
-app.use("/api/images", ImageResize_1.default);
+void app.use("/api/images", ImageResize_1.default);
 //set The listening
 app.listen(port, function () {
     console.log("App Running in ".concat(process.env.NODE_ENV, " mode at localhost:").concat(port, " "));

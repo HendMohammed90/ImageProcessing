@@ -25,7 +25,6 @@ router.get("/", async (req: Request, res: Response) => {
     typeof parameter.fileName == undefined
   ) {
     throw new Error(`Invalid image name for ${parameter.filename}`);
-    
   }
   if (parameter.width <= 0 || typeof parameter.width !== "number") {
     throw new Error(`Invalid width value for ${parameter.width}`);

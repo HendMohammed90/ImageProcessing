@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "development") {
 const port = process.env.PORT || 8080;
 
 //Mount Our Route
-app.use("/api/images", router);
+void app.use("/api/images", router);
 
 //set The listening
 app.listen(port, () => {
