@@ -43,14 +43,14 @@ var path_1 = __importDefault(require("path"));
 var sharp_1 = __importDefault(require("sharp"));
 var fs_1 = __importDefault(require("fs"));
 var sharpImage = function (name, width, height) { return __awaiter(void 0, void 0, void 0, function () {
-    var fileName, data, fileName, error_1;
+    var fileName, fileName, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 4, , 5]);
                 if (!fs_1.default.existsSync(path_1.default.resolve(__dirname, "../../public/resizedImage/".concat(name, "-").concat(width, "-").concat(height, ".jpg ")))) return [3 /*break*/, 1];
                 fileName = "".concat(name, "-").concat(width, "-").concat(height, ".jpg ");
-                console.log("file  exists:", fileName);
+                // console.log("file  exists:", fileName);
                 return [2 /*return*/, fileName];
             case 1: return [4 /*yield*/, (0, sharp_1.default)(path_1.default.resolve(__dirname, "../../public/images/".concat(name, ".jpg")))
                     .resize({
@@ -59,7 +59,7 @@ var sharpImage = function (name, width, height) { return __awaiter(void 0, void 
                 })
                     .toFile(path_1.default.resolve(__dirname, "../../public/resizedImage/".concat(name, "-").concat(width, "-").concat(height, ".jpg ")))];
             case 2:
-                data = _a.sent();
+                _a.sent();
                 fileName = "".concat(name, "-").concat(width, "-").concat(height, ".jpg ");
                 return [2 /*return*/, fileName];
             case 3: return [3 /*break*/, 5];

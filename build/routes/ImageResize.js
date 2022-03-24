@@ -43,7 +43,7 @@ var express_1 = __importDefault(require("express"));
 var sarpFunctionality_1 = __importDefault(require("../utilities/sarpFunctionality"));
 var path_1 = __importDefault(require("path"));
 var router = express_1.default.Router();
-router.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+void router.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filename, width, height, parameter, resizedImage;
     return __generator(this, function (_a) {
         switch (_a.label) {

@@ -11,8 +11,8 @@
     "jasmine": "jasmine",
     "tests": "npx tsc && jasmine",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "lint": "eslint 'src/**/*.ts'" ,
-    "lint:fix": "eslint src/*/.ts --fix"
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint src/**/*.ts --fix"
   },
   "author": "Hend Mohammed",
   "license": "ISC",

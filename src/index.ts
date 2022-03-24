@@ -20,14 +20,23 @@ if (process.env.NODE_ENV === "development") {
 //define our Port
 const port = process.env.PORT || 8080;
 
+
 //Mount Our Route
 void app.use("/api/images", router);
 
 //set The listening
-app.listen(port, () => {
+const server =  app.listen(port, () => {
   console.log(
     `App Running in ${process.env.NODE_ENV} mode at localhost:${port} `
   );
 });
+
+//Handle Unhandled Promise Rejections
+void process.on('unhandledRejection', (error)  => {
+  //log some exception
+  console.log(`Error: ${error}`);
+  //Close Server & Exit Process
+  server.close(() => process.exit(1));
+})
 
 export default app;

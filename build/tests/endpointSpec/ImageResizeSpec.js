@@ -41,6 +41,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
 var index_1 = __importDefault(require("../../index"));
+var sarpFunctionality_1 = __importDefault(require("../../utilities/sarpFunctionality"));
 var request = (0, supertest_1.default)(index_1.default);
 describe("Testing the main endpoint", function () {
     it("Using the endpoint with a valid inputs returns 200", function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -71,6 +72,20 @@ describe("Testing the main endpoint", function () {
                 case 0: return [4 /*yield*/, request.get("/?filename=anything&200&200").expect(404)];
                 case 1:
                     _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe('Testing The Sharp Functionality', function () {
+    it("It should make size functionality in to a given Image", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var data;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, sarpFunctionality_1.default)('palmtunnel', 200, 300)];
+                case 1:
+                    data = _a.sent();
+                    expect(data).toMatch('palmtunnel-200-300.jpg');
                     return [2 /*return*/];
             }
         });
