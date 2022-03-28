@@ -37,6 +37,26 @@ void router.use(
       next();
     }
 
+  //   const parameter = await JSON.parse(
+  //     `{"filename":"${filename}", "width":${width}, "height":${height}}`
+  //   );
+
+  //   // Use Of Sharp package
+  // //Calling Sharp Method
+  // const resizedImage = await sharpImage(
+  //   parameter.filename,
+  //   parameter.width,
+  //   parameter.height
+  // );
+
+  // next(resizedImage);
+  const resizedImage = await sharpImage( filename,width,height);
+
+    res.sendFile(
+      path.resolve(__dirname, `../../public/resizedImage/${resizedImage}`)
+    );
+  
+
   }
 );
 
@@ -46,24 +66,24 @@ void router.get("/", async (req: Request, res: Response) => {
   res.setHeader("Content-Disposition", "inline;filename=yolo.jpeg");
 
   //Get Our Query Parameters
-  const filename = req.query.filename as string;
-  const width = req.query.width as unknown as number;
-  const height = req.query.height as unknown as number;
-  const parameter = await JSON.parse(
-    `{"filename":"${filename}", "width":${width}, "height":${height}}`
-  );
+  // const filename = req.query.filename as string;
+  // const width = req.query.width as unknown as number;
+  // const height = req.query.height as unknown as number;
+  // const parameter = await JSON.parse(
+  //   `{"filename":"${filename}", "width":${width}, "height":${height}}`
+  // );
 
   // Use Of Sharp package
   //Calling Sharp Method
-  const resizedImage = await sharpImage(
-    parameter.filename,
-    parameter.width,
-    parameter.height
-  );
+  // const resizedImage = await sharpImage(
+  //   parameter.filename,
+  //   parameter.width,
+  //   parameter.height
+  // );
 
-  res.sendFile(
-    path.resolve(__dirname, `../../public/resizedImage/${resizedImage}`)
-  );
+  // res.sendFile(
+  //   path.resolve(__dirname, `../../public/resizedImage/${resizedImage}`)
+  // );
 });
 
 export default router;

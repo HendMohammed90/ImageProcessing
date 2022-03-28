@@ -29,7 +29,7 @@ const sharpImage = async (
         .toFile(
           path.resolve(
             __dirname,
-            `../../public/resizedImage/${name}-${width}-${height}.jpg `
+            `../../public/resizedImage/${name}-${width}-${height}.jpg`
           )
         );
 
