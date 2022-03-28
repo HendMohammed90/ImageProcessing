@@ -45,7 +45,14 @@ var port = process.env.PORT || 8080;
 //Mount Our Route
 void app.use("/api/images", ImageResize_1.default);
 //set The listening
-app.listen(port, function () {
+var server = app.listen(port, function () {
     console.log("App Running in ".concat(process.env.NODE_ENV, " mode at localhost:").concat(port, " "));
+});
+//Handle Unhandled Promise Rejections
+void process.on('unhandledRejection', function (error) {
+    //log some exception
+    console.log("Error: ".concat(error));
+    //Close Server & Exit Process
+    server.close(function () { return process.exit(1); });
 });
 exports.default = app;

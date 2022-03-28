@@ -43,6 +43,35 @@ var express_1 = __importDefault(require("express"));
 var sarpFunctionality_1 = __importDefault(require("../utilities/sarpFunctionality"));
 var path_1 = __importDefault(require("path"));
 var router = express_1.default.Router();
+void router.use('/api/images', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var filename, width, height;
+    return __generator(this, function (_a) {
+        filename = req.query.filename;
+        width = req.query.width;
+        height = req.query.height;
+        //Validate Our Query Parameters
+        if (typeof (filename) !== "string" ||
+            filename === undefined) {
+            res.send("Invalid image Name for ".concat(filename));
+        }
+        else {
+            next();
+        }
+        if (width <= 0 || width === undefined || isNaN(width)) {
+            res.send("Invalid width value for ".concat(width));
+        }
+        else {
+            next();
+        }
+        if (height <= 0 || height === undefined || isNaN(height)) {
+            res.send("Invalid height value for ".concat(height));
+        }
+        else {
+            next();
+        }
+        return [2 /*return*/];
+    });
+}); });
 void router.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filename, width, height, parameter, resizedImage;
     return __generator(this, function (_a) {
@@ -57,23 +86,9 @@ void router.get("/", function (req, res) { return __awaiter(void 0, void 0, void
                 return [4 /*yield*/, JSON.parse("{\"filename\":\"".concat(filename, "\", \"width\":").concat(width, ", \"height\":").concat(height, "}"))];
             case 1:
                 parameter = _a.sent();
-                // console.log(filename);
-                //Validate Our Query Parameters
-                if (typeof parameter.filename !== "string" ||
-                    typeof parameter.fileName == undefined) {
-                    throw new Error("Invalid image name for ".concat(parameter.filename));
-                }
-                if (parameter.width <= 0 || typeof parameter.width !== "number") {
-                    throw new Error("Invalid width value for ".concat(parameter.width));
-                }
-                if (parameter.height <= 0 || typeof parameter.height !== "number") {
-                    throw new Error("Invalid height value for ".concat(parameter.height));
-                }
                 return [4 /*yield*/, (0, sarpFunctionality_1.default)(parameter.filename, parameter.width, parameter.height)];
             case 2:
                 resizedImage = _a.sent();
-                // console.log(resizedImage);
-                // console.log(path.resolve(__dirname, `../public/resizedImage/${resizedImage}`));
                 res.sendFile(path_1.default.resolve(__dirname, "../../public/resizedImage/".concat(resizedImage)));
                 return [2 /*return*/];
         }

@@ -77,15 +77,15 @@ describe("Testing the main endpoint", function () {
         });
     }); });
 });
-describe('Testing The Sharp Functionality', function () {
+describe("Testing The Sharp Functionality", function () {
     it("It should make size functionality in to a given Image", function () { return __awaiter(void 0, void 0, void 0, function () {
         var data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, (0, sarpFunctionality_1.default)('palmtunnel', 200, 300)];
+                case 0: return [4 /*yield*/, (0, sarpFunctionality_1.default)("palmtunnel", 200, 300)];
                 case 1:
                     data = _a.sent();
-                    expect(data).toMatch('palmtunnel-200-300.jpg');
+                    expect(data).toMatch("palmtunnel-200-300.jpg");
                     return [2 /*return*/];
             }
         });
